@@ -11,17 +11,20 @@
         :root{ --bg:#0f1020; --bg2:#1a1b35; --text:#f7f8fc; --accent:#80ed99; --pink:#ffafcc; --pink2:#ffa3c7; --blue:#bde0fe; --blue2:#93c8ff; --violet:#bdb2ff; --plate:#d6dde6; --flame:#ffd166; }
         *{ box-sizing:border-box; }
         html,body{ height:100%; }
+        html{ background-color:#0a0b17; }
         body{
             margin:0; font-family:'Poppins',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text);
             background-image: url(BG2.jpg);
             background-size: cover;
-            background-position: center;
+            background-position: center top;
             background-repeat: no-repeat;
+            background-attachment: fixed; /* keep background while scrolling */
+            background-color:#0a0b17; /* fallback behind image */
             
-            overflow:hidden;
+            overflow:auto;
         }
         .container{
-            width:100%; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; position:relative;
+            width:100%; min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; position:relative; padding:24px 16px 140px; max-width: 980px; margin: 0 auto;
         }
         .container::before{
             content:""; position:absolute; inset:-10% -10% -10% -10%; pointer-events:none; opacity:.28; filter:blur(.4px);
@@ -69,7 +72,7 @@
 
         /* Responsive tweaks */
         @media (max-width: 480px){
-            .container{ gap:12px; }
+            .container{ gap:12px; padding:16px 12px 160px; }
             h1{ font-size: clamp(22px, 7vw, 34px); }
             .subtitle{ font-size: clamp(13px, 3.4vw, 18px); }
             .note{ font-size: clamp(11px, 3.2vw, 16px); }
@@ -83,9 +86,16 @@
             .corner-photo{ width:min(20vw, 260px); }
         }
         @media (max-height: 540px){
-            .container{ gap:8px; }
+            .container{ gap:8px; padding-bottom:120px; }
             .corner-photo{ width:min(26vw, 160px); bottom:6px; }
             .subtitle{ font-size: clamp(12px, 2.2vw, 18px); }
+        }
+        /* If extremely small screens, hide one/both corner photos to prevent overlap */
+        @media (max-width: 360px){
+            .corner-photo{ width:min(40vw, 140px); }
+        }
+        @media (max-width: 360px) and (max-height: 560px){
+            .corner-photo.right{ display:none; }
         }
     </style>
 </head>
@@ -174,6 +184,6 @@
             });
         })();
         </script>
-        <!--CHANGED-->
+        <!-- ADI CHANGED-->
 </body>
 </html>
