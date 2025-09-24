@@ -13,7 +13,7 @@
         html,body{ height:100%; }
         body{
             margin:0; font-family:'Poppins',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text);
-            background-image: url(images/BG2.jpg);
+            background-image: url(BG2.jpg);
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -66,6 +66,27 @@
         .star:nth-child(9){ --x:70%; --y:66%; animation-delay:.6s; }
         .star:nth-child(10){ --x:86%; --y:30%; animation-delay:1.25s; transform:translate(-50%,-50%) scale(.7); }
         .note{ margin:0; opacity:.85; font-size:14px; text-align:center; }
+
+        /* Responsive tweaks */
+        @media (max-width: 480px){
+            .container{ gap:12px; }
+            h1{ font-size: clamp(22px, 7vw, 34px); }
+            .subtitle{ font-size: clamp(13px, 3.4vw, 18px); }
+            .note{ font-size: clamp(11px, 3.2vw, 16px); }
+            .adii{ max-width:min(88vw, 340px); }
+            .corner-photo{ width:min(38vw, 160px); bottom:8px; }
+            .corner-photo.left{ left:8px; }
+            .corner-photo.right{ right:8px; }
+        }
+        @media (min-width: 1024px){
+            .adii{ max-width:min(60vw, 440px); }
+            .corner-photo{ width:min(20vw, 260px); }
+        }
+        @media (max-height: 540px){
+            .container{ gap:8px; }
+            .corner-photo{ width:min(26vw, 160px); bottom:6px; }
+            .subtitle{ font-size: clamp(12px, 2.2vw, 18px); }
+        }
     </style>
 </head>
 <body>
@@ -76,7 +97,7 @@
       
     <section class="container">
         <h1>Happy Birthday, ADI! <br>⋆𐙚 ̊⋆</h1>
-        <img src="images/cake.png" alt="ADI" class="adii">
+        <img src="cake.png" alt="ADI" class="adii">
         <p class="subtitle">Make a wish ✨</p>
         <p class="subtitle">Wishing you a delightful day filled with joy and warmth.
             <br> Always remember that I will be by your side, supporting you through every moment. 
@@ -85,8 +106,8 @@
 
         <p class="note">ILY 😘💕</p>
     </section>
-    <img src="images/tan.png" alt="Bottom left" class="corner-photo left">
-    <img src="images/spi.png" alt="Bottom right" class="corner-photo right">
+    <img src="tan.png" alt="Bottom left" class="corner-photo left">
+    <img src="spi.png" alt="Bottom right" class="corner-photo right">
     <div class="twinkles" aria-hidden="true">
         <span class="star"></span>
         <span class="star"></span>
@@ -153,6 +174,6 @@
             });
         })();
         </script>
-        
+        <!--CHANGED-->
 </body>
 </html>
