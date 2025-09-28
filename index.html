@@ -55,13 +55,49 @@
       margin: 16px 0;
     }
 
-    .corner-photo{ 
-      position: fixed; bottom: 12px; 
-      width: 180px; height: auto;
-      z-index: 5;
+    .corner-photo {
+    position: absolute; /* instead of fixed */
+    bottom: 12px;
+    width: min(28vw, 200px);
+    height: auto;
+    object-fit: contain;
+    z-index: 5;
+}
+
+.corner-photo.left { left: 12px; }
+.corner-photo.right { right: 12px; }
+
+/* On very small devices: shrink + push down */
+@media (max-width: 480px) {
+    .corner-photo {
+        width: min(35vw, 120px);
+        bottom: 4px;
     }
-    .corner-photo.left{ left: 12px; }
-    .corner-photo.right{ right: 12px; }
+    .container {
+        padding-bottom: 140px; /* so text doesn't overlap */
+    }
+}
+
+/* On tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .corner-photo {
+        width: min(28vw, 160px);
+    }
+    .container {
+        padding-bottom: 160px;
+    }
+}
+
+/* On desktops */
+@media (min-width: 1024px) {
+    .corner-photo {
+        width: min(15vw, 240px);
+    }
+    .container {
+        padding-bottom: 200px;
+    }
+}
+
 
     /* Stars */
     .twinkles{ position:fixed; inset:0; pointer-events:none; z-index:3; }
