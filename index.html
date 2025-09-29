@@ -4,121 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday ADI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{ --bg:#0f1020; --text:#f7f8fc; }
-    *{ box-sizing:border-box; margin:0; padding:0; }
+    :root { --bg:#0f1020; --text:#f7f8fc; }
+    * { box-sizing:border-box; margin:0; padding:0; }
 
-    html{ 
+    html {
       background: #0a0b17 url("BG2.jpg") center top / cover no-repeat;
-      height: 100%; 
+      height: 100%;
     }
-    body{
-      font-family: 'Poppins', sans-serif; 
+    body {
+      font-family: 'Poppins', sans-serif;
       color: var(--text);
       height: 100vh;
       overflow: hidden;
       background: transparent;
     }
 
-    .container{
-      width: 100%; height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 24px 16px;
-      position: relative;
-      z-index: 10;
-    }
+    .container {
+  width: 100%; 
+  height: auto;              /* allow natural height */
+  min-height: 100vh;         /* still covers screen */
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+  justify-content: flex-start;
+  text-align: center;
+  padding: 80px 16px 40px;   /* space at top + bottom */
+  position: relative;
+  z-index: 10;
+}
 
-    h1{ 
-      font-weight: 800; 
-      font-size: clamp(22px, 3vw, 32px); 
-      font-family: Georgia, serif; 
+
+
+    h1 {
+      font-weight: 800;
+      font-size: clamp(22px, 3vw, 32px);
+      font-family: Georgia, serif;
       font-style: italic;
       margin-bottom: 12px;
     }
-    .subtitle{ 
-      font-weight: 600; 
-      color: #ee77a6; 
-      font-family: Georgia, serif; 
+    .subtitle {
+      font-weight: 600;
+      color: #ee77a6;
+      font-family: Georgia, serif;
       font-style: italic;
       font-size: clamp(12px, 2vw, 18px);
       line-height: 1.6;
+      margin-bottom: 8px;
     }
 
-    .adii{ 
-      max-width: 280px; 
+    .adii {
+      max-width: 280px;
       width: 100%;
       margin: 16px 0;
     }
 
     .corner-photo {
-    position: absolute; /* instead of fixed */
-    bottom: 12px;
-    width: min(28vw, 200px);
-    height: auto;
-    object-fit: contain;
-    z-index: 5;
-}
-
-.corner-photo.left { left: 12px; }
-.corner-photo.right { right: 12px; }
-
-/* On very small devices: shrink + push down */
-@media (max-width: 480px) {
-    .corner-photo {
-        width: min(35vw, 120px);
-        bottom: 4px;
+      position: absolute;
+      bottom: 12px;
+      width: min(28vw, 200px);
+      height: auto;
+      object-fit: contain;
+      z-index: 5;
     }
-    .container {
-        padding-bottom: 140px; /* so text doesn't overlap */
-    }
-}
+    .corner-photo.left { left: 12px; }
+    .corner-photo.right { right: 12px; }
 
-/* On tablets */
-@media (min-width: 481px) and (max-width: 768px) {
-    .corner-photo {
-        width: min(28vw, 160px);
+    @media (max-width: 480px) {
+      .corner-photo { width: min(35vw, 120px); bottom: 4px; }
+      .container { padding-bottom: 140px; }
     }
-    .container {
-        padding-bottom: 160px;
+    @media (min-width: 481px) and (max-width: 768px) {
+      .corner-photo { width: min(28vw, 160px); }
+      .container { padding-bottom: 160px; }
     }
-}
+    @media (min-width: 1024px) {
+      .corner-photo { width: min(15vw, 240px); }
+      .container { padding-bottom: 200px; }
+    }
 
-/* On desktops */
-@media (min-width: 1024px) {
-    .corner-photo {
-        width: min(15vw, 240px);
-    }
-    .container {
-        padding-bottom: 200px;
-    }
-}
-
-
-    /* Stars */
-    .twinkles{ position:fixed; inset:0; pointer-events:none; z-index:3; }
-    .star{ position:absolute; width:10px; height:10px; 
+    .twinkles { position:fixed; inset:0; pointer-events:none; z-index:3; }
+    .star {
+      position:absolute; width:10px; height:10px;
       background: radial-gradient(circle, #fff 0 35%, rgba(255,255,255,.6) 65%, transparent 100%);
       border-radius: 50%;
       animation: twinkle 2s infinite ease-in-out;
     }
-    @keyframes twinkle{ 0%,100%{ opacity:.3; transform:scale(.7);} 50%{ opacity:1; transform:scale(1);} }
+    @keyframes twinkle { 
+      0%,100%{ opacity:.3; transform:scale(.7);} 
+      50%{ opacity:1; transform:scale(1);} 
+    }
     .star:nth-child(1){ top:20%; left:18%; }
     .star:nth-child(2){ top:40%; left:32%; }
     .star:nth-child(3){ top:25%; left:60%; }
     .star:nth-child(4){ top:50%; left:75%; }
     .star:nth-child(5){ top:70%; left:15%; }
     .star:nth-child(6){ top:80%; left:55%; }
+
+    #playBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #ee77a6;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative; /* keep it inside container */
+}
+
   </style>
 </head>
 <body>
-  <!-- Audio (must click to unmute on most browsers) -->
   <audio id="birthdayAudio" loop>
-    <source src="Die With a Smile lyrics - Lady Gaga, Bruno Mars #lyrics #diewithasmile #song.mp3" type="audio/mpeg">
+    <source src="song.mp3" type="audio/mpeg">
   </audio>
 
   <section class="container">
@@ -126,42 +126,33 @@
     <img src="cake.png" alt="Birthday Cake" class="adii">
     <p class="subtitle">Make a wish ✨</p>
     <p class="subtitle">
-      Wishing you a delightful day filled with joy and warmth. <br>
-      Always remember I’ll be by your side, supporting you through every moment. <br>
-      My hope is that this bond we share continues to flourish until our last breath ❤️ <br> 
+      Wishing you a delightful day filled with joy and warmth.<br>
+      Always remember I’ll be by your side through every moment.<br>
+      May our bond flourish until our last breath ❤️<br> 
       ILY 😘💕
     </p>
-    <button id="playBtn" style="margin-top:20px; padding:10px 20px; border:none; border-radius:8px; background:#ee77a6; color:white; font-weight:600; cursor:pointer;">
-      🎶 Play Music
-    </button>
+    <button id="playBtn">🎶 Play Music</button>
   </section>
   
   <img src="tan.png" alt="Decor Left" class="corner-photo left">
   <img src="spi.png" alt="Decor Right" class="corner-photo right">
 
   <div class="twinkles">
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
+    <span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span>
   </div>
 
   <script>
     const audio = document.getElementById("birthdayAudio");
     const btn = document.getElementById("playBtn");
-
     btn.addEventListener("click", () => {
       audio.play().then(() => {
         audio.volume = 0.7;
-        btn.style.display = "none"; // hide after play
-      }).catch(err => {
-        console.log("Autoplay blocked:", err);
-      });
+        btn.style.display = "none";
+      }).catch(err => console.log("Play blocked:", err));
     });
   </script>
   <!--HBD-->
 </body>
 </html>
-
