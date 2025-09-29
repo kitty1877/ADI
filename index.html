@@ -143,16 +143,19 @@
     <span class="star"></span><span class="star"></span>
   </div>
 
-  <script>
-    const audio = document.getElementById("birthdayAudio");
-    const btn = document.getElementById("playBtn");
-    btn.addEventListener("click", () => {
-      audio.play().then(() => {
-        audio.volume = 0.7;
-        btn.style.display = "none";
-      }).catch(err => console.log("Play blocked:", err));
-    });
-  </script>
+ <script>
+  const audio = document.getElementById("birthdayAudio");
+  const btn = document.getElementById("playBtn");
+
+  btn.addEventListener("click", () => {
+    audio.play().then(() => {
+      audio.volume = 0.7;
+      btn.style.display = "none"; // hides button after play
+    }).catch(err => console.log("Play blocked:", err));
+  });
+</script>
+
   <!--HBD-->
 </body>
 </html>
+
